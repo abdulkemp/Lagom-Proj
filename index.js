@@ -3,7 +3,7 @@ const route = require('./controller');
 const cors = require('cors');
 const port = parseInt(process.env.PORT) || 4000;
 const app = express();
-const {errorHandeling} = require('./middleware/errorHandeling');
+const {errorHandling} = require('./middleware/ErrorHandeling');
 const cookieParser = require('cookie-parser');
 
 app.use((req, res, next) => {
@@ -27,4 +27,4 @@ app.listen(port, () => {
     console.log(`Server is running at ${port}`);
 });
 
-app.use(errorHandeling);
+app.use(errorHandling);
