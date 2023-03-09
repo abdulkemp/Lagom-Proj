@@ -3,7 +3,7 @@ const route = require('./controller');
 const cors = require('cors');
 const port = parseInt(process.env.PORT) || 4000;
 const app = express();
-const {errorHandling} = require('./middleware/ErrorHandeling');
+const {errorHandling} = require('./middleware/ErrorHandling');
 const cookieParser = require('cookie-parser');
 
 app.use((req, res, next) => {
