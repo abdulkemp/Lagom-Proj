@@ -5,7 +5,7 @@
       <div class="land">
         <p>
           <img
-            src="https://i.postimg.cc/134GRnL6/passionate-black-male-singer-performing-against-red-background-singing-into-microphone-wearing-party.jpg"
+            src="https://i.postimg.cc/YS2mQtYk/passionate-black-male-singer-performing-against-red-background-singing-into-microphone-wearing-party.jpg"
             alt=""
             srcset=""
             class="landing"
@@ -76,18 +76,23 @@
           </div>
         </div>
       </div>
+      <products />
     </div>
   </div>
 </template>
 
 <script>
 import NavBar from "../components/NavBar.vue";
+import products from "../components/Products.vue"
 export default {
   name: "HomeView",
   components: {
     NavBar,
+    products,
   },
+  
 };
+
 </script>
 
 <style>
@@ -106,10 +111,6 @@ export default {
   height: 16rem;
 }
 
-.carousel-item {
-  padding-bottom: 5rem;
-}
-
 .landing{
   width: 100%;
   max-height: 100vh;
@@ -121,8 +122,5 @@ export default {
   height: 10rem;
 }
 
-.land {
-  background-size: cover;
-}
 
 </style>

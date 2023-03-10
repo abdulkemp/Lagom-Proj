@@ -145,9 +145,5 @@ i {
   background: grey;
 }
 
-.navbar {
-  /* border-bottom: 1px solid black; */
-  margin-left: 5rem;
-  margin-right: 5rem;
-}
+
 </style>
