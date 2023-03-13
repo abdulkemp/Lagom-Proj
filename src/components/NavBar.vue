@@ -1,12 +1,5 @@
-<template>
+ <!-- <template>
   <div>
-    <div class="collapse" id="navbarToggleExternalContent">
-      <div class="bg-dark p-4">
-        <h5 class="text-white h4">Collapsed content</h5>
-        <span class="text-muted">Toggleable via the navbar brand.</span>
-      </div>
-    </div>
-
     <nav class="navbar navbar-light fixed-top">
       <div class="container-fluid">
         <img
@@ -22,6 +15,7 @@
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar"
+            style="color: black;"
           >
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -121,4 +115,64 @@ export default {
   margin-right: 1rem;
   border: 1px solid black;
 }
-</style>
+</style> 
+ -->
+
+  <template>
+  <div>
+    <nav class="navbar fixed-top">
+      <div class="image">
+        <img
+          src="https://i.postimg.cc/26C74zH7/lagom-high-resolution-logo-black-on-transparent-background.png"
+          class="lagom"
+          alt=""
+          srcset=""
+        />
+      </div>
+      <div class="cont">
+        <li class="nav-items">
+          <router-link to="/" class="nav-link">Home</router-link>
+        </li>
+        <li class="nav-items">
+          <router-link class="nav-link" to="/about">About</router-link>
+        </li>
+        <li class="nav-items">
+          <router-link class="nav-link" to="/admin">Admin</router-link>
+        </li>
+        <li class="nav-items">
+          <router-link class="nav-link" to="/login"
+            >Login/Register</router-link
+          >
+        </li>
+      </div>
+    </nav>
+  </div>
+</template>
+ 
+ <script>
+export default {};
+</script>
+ 
+ <style>
+.lagom {
+  height: 2rem;
+  padding-left: 3rem;
+}
+
+.cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin-right: 7rem;
+}
+
+.nav-items{
+  text-decoration: none;
+}
+.nav-link{
+  text-decoration: none;
+  color: white;
+}
+</style> 
+

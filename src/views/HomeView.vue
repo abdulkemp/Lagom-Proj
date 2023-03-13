@@ -5,10 +5,10 @@
       <div class="land">
         <p>
           <img
-            src="https://i.postimg.cc/YS2mQtYk/passionate-black-male-singer-performing-against-red-background-singing-into-microphone-wearing-party.jpg"
-            alt=""
-            srcset=""
-            class="landing"
+          src="https://i.postimg.cc/YS2mQtYk/passionate-black-male-singer-performing-against-red-background-singing-into-microphone-wearing-party.jpg"
+          alt=""
+          srcset=""
+          class="landing"
           />
         </p>
       </div>
