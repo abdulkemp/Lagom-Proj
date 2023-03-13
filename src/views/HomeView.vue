@@ -78,7 +78,8 @@
       </div>
       <products />
     </div>
-  </div>
+    </div>
+    
 </template>
 
 <script>

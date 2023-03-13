@@ -1,11 +1,18 @@
 <template>
   <div>
-    <h1>afascasc</h1>
+    <div class="line"></div>
     <div class="prod container">
       <div class="row">
-        <div class="col-md-4" v-for="item in items" :key="item.id">
+        <div class="col-md-4 mt-5" v-for="item in items" :key="item.id">
           <div class="card">
-            <img :src="item.image" class="card-img-top" alt="..." style="height: 320px;width: 20rem;"/>
+            <div class="ima">
+              <img
+                :src="item.image"
+                class="card-img-top"
+                alt="..."
+                style="height: 20rem; max-width: 30rem"
+              />
+            </div>
             <div class="card-body">
               <h5 class="card-title">{{ item.prodName }}</h5>
               <p class="card-text">R {{ item.price }}</p>
@@ -13,6 +20,7 @@
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     </div>
   </div>
@@ -20,8 +28,13 @@
 
 <script>
 import axios from "axios";
+import Footer from "../components/Footer.vue";
 export default {
   name: "products",
+  components: {
+    Footer,
+  },
+
   data() {
     return {
       items: this.$store.state.products,
@@ -44,24 +57,27 @@ export default {
 
 <style>
 .card {
-  max-width: 30rem;
+  width: 20rem;
+
   /* height: 10rem; */
 }
-
-.col{
-  /* justify-content: center !important;// */
-  /* align-content: center; */
+.line {
+  border: 1px solid black;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
-.col{
+.col {
   justify-content: center;
   margin: 0;
   padding: 0;
 }
-
-.col-md-4{
+.col-md-4 {
   display: flex;
   justify-content: center;
   align-content: center;
-  gap: 5px;
 }
+
+
 </style>

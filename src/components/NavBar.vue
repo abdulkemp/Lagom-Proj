@@ -36,6 +36,7 @@
             <img
               src="https://i.postimg.cc/rswxMq2P/lagom-low-resolution-logo-black-on-transparent-background.png"
               class="lagom"
+              style="padding-left: 3rem;"
               alt=""
               srcset=""
             />
@@ -46,57 +47,17 @@
               aria-label="Close"
             ></button>
           </div>
+          <div class="nav-line"></div>
           <div class="offcanvas-body">
-            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <ul class="navbar-nav justify-center">
               <li class="nav-item">
-                <a class="nav-link" href="#"
-                  ><router-link to="/"></router-link>Home<i
-                    class="fa fa-home"
-                    aria-hidden="true"
-                  ></i
-                ></a>
-                <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
+                <router-link to="/" class="nav-links">Home</router-link>
+                </li>
+              <li class="nav-item">
+                <router-link class="nav-links" to="/about" >About</router-link>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"
-                  >Profile <i class="fa fa-user" aria-hidden="true"></i
-                ></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"
-                  >Edit <i class="fa fa-pencil-square" aria-hidden="true"></i
-                ></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"
-                  >Add Account
-                  <i class="fa fa-plus-square" aria-hidden="true"></i
-                ></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"
-                  >History <i class="fa fa-history" aria-hidden="true"></i
-                ></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"
-                  >Buy <i class="fa fa-pencil-square" aria-hidden="true"></i
-                ></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"
-                  >Credit <i class="fa fa-credit-card" aria-hidden="true"></i
-                ></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"
-                  >Contact <i class="fa fa-compress" aria-hidden="true"></i
-                ></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"
-                  >Help <i class="fa fa-info-circle" aria-hidden="true"></i
-                ></a>
+                <router-link class="nav-links" to="/login" >Login/Register</router-link>
               </li>
             </ul>
             <form class="d-flex">
@@ -106,7 +67,7 @@
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button class="btn btn-outline-success" type="submit">
+              <button class="btn" type="submit">
                 Search
               </button>
             </form>
@@ -124,26 +85,40 @@ export default {
 </script>
 
 <style scoped>
-i {
-  color: gold;
-}
 .lagom {
   height: 2rem;
   padding-left: 3rem;
 }
-
 .navbar-toggler {
     border: none;
-    /* border: 2px solid black; */
-  /* background-color: black; */
 }
 .tog{
     padding-right: 3rem;
 }
-
 .off {
-  background: grey;
+  background: rgba(214, 213, 213, 0.349);
+  color: white;
 }
-
-
+.nav-links{
+  text-decoration: none;
+  color: white;
+}
+.d-flex{
+  margin-top: 10rem;
+}
+.btn{
+  background: black;
+  color: white;
+}
+.btn:hover{
+  background: white;
+  color: black;
+}
+.nav-line{
+  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  border: 1px solid black;
+}
 </style>
