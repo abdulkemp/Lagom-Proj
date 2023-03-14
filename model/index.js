@@ -49,7 +49,7 @@ class User {
         });
     };
     fetchUsers(req, res) {
-        const fetchAllUsersQuery = `select firstName, lastName, emailAdd, password, imgPro FROM Users;`;
+        const fetchAllUsersQuery = `select userID, firstName, lastName, emailAdd, password, imgPro FROM Users;`;
 
         db.query(fetchAllUsersQuery, (err, data) => {
             if (err) throw err, console.log(err);
