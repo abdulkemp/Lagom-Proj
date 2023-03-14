@@ -1,17 +1,64 @@
 <template>
   <div>
     <div class="container">
-      <div class="row">
+      <div class="row table-container">
+        <div class="col-12">
+          <h1>Users</h1>
+          <button
+            type="button"
+            class="btn btn-success add-btn"
+            data-bs-toggle="modal"
+            data-bs-target="#addUserModal"
+          >
+            Add
+          </button>
+        </div>
+        <div class="col">
+          <table class="table is-striped is-bordered mt-2 is-fullwidth">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>Image</th>
+                <th>Edit/Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in user" :key="item.userID ">
+                <td>{{ item.userID }}</td>
+                <td>{{ item.firstName }}</td>
+                <td>{{ item.lastName }}</td>
+                <td>{{ item.emailAdd }}</td>
+                <td><img class="tableImg" :src="item.imgPro" alt="" /></td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-toggle="modal"
+                    data-bs-target="#editUserModal"
+                  >
+                    Edit
+                  </button>
+                  <button class="btn btn-danger">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="row table-container">
         <div class="col-12">
           <h1>Products</h1>
           <button
-                    type="button"
-                    class="btn btn-success add-btn"
-                    data-bs-toggle="modal"
-                    data-bs-target="#addProductModal"
-                  >
-                    Add
-                  </button>
+            type="button"
+            class="btn btn-success add-btn"
+            data-bs-toggle="modal"
+            data-bs-target="#addProductModal"
+          >
+            Add
+          </button>
         </div>
         <div class="col">
           <table class="table is-striped is-bordered mt-2 is-fullwidth">
@@ -27,7 +74,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="item in product" :key="item.id">
+              <tr v-for="item in product" :key="item.id" >
                 <td>{{ item.id }}</td>
                 <td>{{ item.prodName }}</td>
                 <td>{{ item.price }}</td>
@@ -40,53 +87,6 @@
                     class="btn btn-primary"
                     data-bs-toggle="modal"
                     data-bs-target="#editProductModal"
-                  >
-                    Edit
-                  </button>
-                  <button class="btn btn-danger">Delete</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12">
-          <h1>Users</h1>
-          <button
-                    type="button"
-                    class="btn btn-success add-btn"
-                    data-bs-toggle="modal"
-                    data-bs-target="#addUserModal"
-                  >
-                    Add
-                  </button>
-        </div>
-        <div class="col">
-          <table class="table is-striped is-bordered mt-2 is-fullwidth">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>FirstName</th>
-                <th>LastName</th>
-                <th>Email</th>
-                <th>Image</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="item in user" :key="item.userID">
-                <td>{{ item.userID }}</td>
-                <td>{{ item.firstName }}</td>
-                <td>{{ item.lastName }}</td>
-                <td>{{ item.emailAdd }}</td>
-                <td><img class="tableImg" :src="item.imgPro" alt="" /></td>
-                <td>
-                  <button
-                    type="button"
-                    class="btn btn-primary"
-                    data-bs-toggle="modal"
-                    data-bs-target="#editUserModal"
                   >
                     Edit
                   </button>
@@ -156,15 +156,41 @@ export default {
 .tableImg {
   height: 100px;
   width: 100px;
-  border-radius: 25%;
   object-fit: contain;
 }
 
 .row {
   width: 80rem;
+  max-width: 100%;
+  /* text-align: center; */
 }
 
-.add-btn{
+.add-btn {
   float: left;
+}
+
+
+
+.table{
+  border-bottom: 1px solid black;
+  justify-content: center;
+  align-items: center;
+  border-collapse: collapse;
+}
+
+
+
+.container{
+  margin-top: 5rem;
+  text-align: center;
+}
+.prod{
+  margin-top: 3rem;
+}
+
+@media screen and (min-width: 650px) {
+  .usrod{
+    max-width: 100%;
+  }
 }
 </style>

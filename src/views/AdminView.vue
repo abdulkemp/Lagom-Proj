@@ -1,5 +1,6 @@
 <template>
     <div>
+      <NavBar />
       <Admin/>
        <EditProduct/>
        <EditUser/>
@@ -13,6 +14,7 @@
   import EditUser from "../components/EditUser.vue";
   import AddProduct from "../components/AddProduct.vue";
   import AddUser from "../components/AddUser.vue";
+  import NavBar from "../components/NavBar.vue";
   export default {
     name: "admin-comp",
     components: {
@@ -20,7 +22,8 @@
       EditProduct,
       EditUser,
       AddProduct,
-      AddUser
+      AddUser,
+      NavBar
     },
   };
   </script>
