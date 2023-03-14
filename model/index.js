@@ -127,7 +127,7 @@ class User {
 
 class Product {
     fetchProducts(req, res) {
-        const fetchAllProducts = `SELECT id, prodName, prodDesc, price, quantity, image, shipPrice FROM Products;`;
+        const fetchAllProducts = `SELECT id, prodName, prodDesc, price, category, quantity, image, shipPrice FROM Products;`;
 
         db.query(fetchAllProducts, (err, results) => {
             if (err) throw err, console.log(err);
@@ -137,7 +137,7 @@ class Product {
         });
     };
     fetchProduct(req, res) {
-        const fetchProductQuery = `SELECT id, prodName, prodDesc, price, quantity, image, shipPrice FROM Products WHERE id = ?;`;
+        const fetchProductQuery = `SELECT id, prodName, prodDesc, price, category, quantity, image, shipPrice FROM Products WHERE id = ?;`;
 
         db.query(fetchProductQuery, [req.params.id], (err, results) => {
             if (err) throw err, console.log(err);
