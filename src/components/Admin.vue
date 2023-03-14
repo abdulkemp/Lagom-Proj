@@ -30,9 +30,9 @@
               <tr v-for="item in product" :key="item.id">
                 <td>{{ item.id }}</td>
                 <td>{{ item.prodName }}</td>
-                <td>R{{ item.price }}</td>
+                <td>{{ item.price }}</td>
                 <td>{{ item.category }}</td>
-                <td>{{ item.prodQuantity }}</td>
+                <td>{{ item.quantity }}</td>
                 <td><img class="tableImg" :src="item.image" alt="" /></td>
                 <td>
                   <button
@@ -71,7 +71,7 @@
                 <th>FirstName</th>
                 <th>LastName</th>
                 <th>Email</th>
-                <th>Password</th>
+                <th>Image</th>
               </tr>
             </thead>
             <tbody>
@@ -80,8 +80,7 @@
                 <td>{{ item.firstName }}</td>
                 <td>{{ item.lastName }}</td>
                 <td>{{ item.emailAdd }}</td>
-                <td>{{ item.password }}</td>
-                <td><img class="tableImg" :src="item.userProfile" alt="" /></td>
+                <td><img class="tableImg" :src="item.imgPro" alt="" /></td>
                 <td>
                   <button
                     type="button"
@@ -157,6 +156,7 @@ export default {
 .tableImg {
   height: 100px;
   width: 100px;
+  border-radius: 25%;
   object-fit: contain;
 }
 

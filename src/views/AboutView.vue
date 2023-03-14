@@ -26,14 +26,16 @@
         </div>
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script>
 import NavBar from "../components/NavBar.vue";
+import Footer from "../components/Footer.vue";
 export default {
   name: 'About',
-  components: {NavBar}
+  components: {NavBar,Footer}
 }
 </script>
 
