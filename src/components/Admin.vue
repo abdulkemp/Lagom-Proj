@@ -1,5 +1,6 @@
 <template>
   <div>
+    <NavBar />
     <div class="container">
       <div class="row table-container">
         <div class="col-12">
@@ -77,7 +78,7 @@
               <tr v-for="item in product" :key="item.id" >
                 <td>{{ item.id }}</td>
                 <td>{{ item.prodName }}</td>
-                <td>{{ item.price }}</td>
+                <td>R {{ item.price }}</td>
                 <td>{{ item.category }}</td>
                 <td>{{ item.quantity }}</td>
                 <td><img class="tableImg" :src="item.image" alt="" /></td>
@@ -103,8 +104,12 @@
 
 <script>
 import axios from "axios";
+import NavBar from "../components/NavBar.vue";
 export default {
   name: "admin-Comp",
+  components: {
+    NavBar
+  },
   data() {
     return {
       product: [],
@@ -154,7 +159,7 @@ export default {
 
 <style scoped>
 .tableImg {
-  height: 100px;
+  height: 50px;
   width: 100px;
   object-fit: contain;
 }
@@ -166,16 +171,30 @@ export default {
 }
 
 .add-btn {
-  float: left;
+  float: right;
 }
 
+tbody button {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  width: 5rem;
+  margin-top: 7px;
+  height: 20px;
+  text-align: center;
+}
 
+ /* tbody td{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
 
 .table{
   border-bottom: 1px solid black;
   justify-content: center;
   align-items: center;
-  border-collapse: collapse;
+  /* border-collapse: collapse; */
 }
 
 
@@ -184,13 +203,20 @@ export default {
   margin-top: 5rem;
   text-align: center;
 }
-.prod{
+/* .prod{
   margin-top: 3rem;
-}
+} */
 
-@media screen and (min-width: 650px) {
-  .usrod{
-    max-width: 100%;
+@media screen and (max-width: 650px) {
+  .container{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  tbody td{
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 </style>
