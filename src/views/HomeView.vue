@@ -105,7 +105,7 @@ export default {
 }
 .container {
   /* border: 1px solid red; */
-  height: 25rem;
+  height: 18rem;
 }
 
 .caro-img {
@@ -125,13 +125,10 @@ export default {
 
 @media screen and (max-width: 650px) {
   .caro{
-    width:18rem;
+    width:26rem;
     max-width: 100%;
   }
   .carousel-inner img{
-    height: 10rem;
-  }
-  .carousel-item{
     height: 10rem;
   }
 }

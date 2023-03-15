@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="body">
     <NavBar />
     <div class="container">
       <div class="row table-container">
@@ -27,7 +27,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="item in user" :key="item.userID ">
+              <tr v-for="item in user" :key="item.userID " class="bord">
                 <td>{{ item.userID }}</td>
                 <td>{{ item.firstName }}</td>
                 <td>{{ item.lastName }}</td>
@@ -36,13 +36,13 @@
                 <td>
                   <button
                     type="button"
-                    class="btn btn-primary"
+                    class="btn bton"
                     data-bs-toggle="modal"
                     data-bs-target="#editUserModal"
                   >
                     Edit
                   </button>
-                  <button class="btn btn-danger">Delete</button>
+                  <button class="btn btton">Delete</button>
                 </td>
               </tr>
             </tbody>
@@ -75,23 +75,23 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="item in product" :key="item.id" >
+              <tr v-for="item in product" :key="item.id" class="bord">
                 <td>{{ item.id }}</td>
                 <td>{{ item.prodName }}</td>
-                <td>R {{ item.price }}</td>
+                <td>{{ item.price }}</td>
                 <td>{{ item.category }}</td>
                 <td>{{ item.quantity }}</td>
                 <td><img class="tableImg" :src="item.image" alt="" /></td>
                 <td>
                   <button
                     type="button"
-                    class="btn btn-primary"
+                    class="btn bton"
                     data-bs-toggle="modal"
                     data-bs-target="#editProductModal"
                   >
                     Edit
                   </button>
-                  <button class="btn btn-danger">Delete</button>
+                  <button class="btn btton">Delete</button>
                 </td>
               </tr>
             </tbody>
@@ -108,9 +108,8 @@ import NavBar from "../components/NavBar.vue";
 export default {
   name: "admin-Comp",
   components: {
-    NavBar
-  },
-  data() {
+    NavBar,
+  },  data() {
     return {
       product: [],
       user: [],
@@ -132,7 +131,6 @@ export default {
         console.log(err);
       }
     },
-
     async getUsers() {
       try {
         const response = await axios.get(
@@ -144,7 +142,6 @@ export default {
         console.log(err);
       }
     },
-
     async deleteProduct(id) {
       try {
         await axios.delete(`https://lagom-project.onrender.com/products/${id}`);
@@ -158,62 +155,80 @@ export default {
 </script>
 
 <style scoped>
+.add-btn {
+  float: right;
+}
+tbody button {
+  width: 5rem;
+  margin-top: 4px;
+}
 .tableImg {
   height: 50px;
   width: 100px;
   object-fit: contain;
 }
-
 .row {
   width: 80rem;
   max-width: 100%;
   /* text-align: center; */
 }
-
 .add-btn {
   float: right;
 }
-
-tbody button {
-  display: block;
-  justify-content: center;
-  align-items: center;
-  width: 5rem;
-  margin-top: 7px;
-  height: 20px;
-  text-align: center;
+.bton {
+  background: transparent;
+  border: transparent;
 }
-
- /* tbody td{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
+.btton {
+  background: transparent;
+  border: transparent;
+}
+.bton:hover {
+  background: blue;
+  color: white;
+  border: 1px solid black;
+}
+.btton:hover {
+  background: red;
+  color: white;
+  border: 1px solid black;
+}
 .table{
   border-bottom: 1px solid black;
   justify-content: center;
   align-items: center;
-  /* border-collapse: collapse; */
+  border-collapse: collapse;
 }
-
-
-
 .container{
   margin-top: 5rem;
   text-align: center;
 }
-/* .prod{
-  margin-top: 3rem;
-} */
-
 @media screen and (max-width: 650px) {
-  .container{
+  .body {
     display: flex;
     justify-content: center;
-    align-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 100%;
   }
-  tbody td{
+  .container {
+    display: inline-block;
+    justify-content: center;
+    align-content: center;
+    width: 15rem;
+    margin-left: 5rem;
+  }
+  .bord {
+    border: 2px solid black;
+  }
+  tbody {
+    margin-bottom: 2rem;
+  }
+  thead {
+    display: none;
+  }
+  tbody td {
+    flex-wrap: wrap;
     display: flex;
     justify-content: center;
     align-items: center;

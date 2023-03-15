@@ -4,10 +4,14 @@
       <div class="contain">
         <div class="navb align-items-center justify-content-between">
           <div>
-            <img src="https://i.postimg.cc/26C74zH7/lagom-high-resolution-logo-black-on-transparent-background.png"
-              class="lagom" alt="" srcset="" />
+            <img
+              src="https://i.postimg.cc/26C74zH7/lagom-high-resolution-logo-black-on-transparent-background.png"
+              class="lagom"
+              alt=""
+              srcset=""
+            />
           </div>
-          <input type="checkbox" id="nav-check">
+          <input type="checkbox" id="nav-check" />
           <label for="nav-check" class="nav-toggler">
             <span></span>
           </label>
@@ -23,13 +27,14 @@
                 <router-link class="nav-link" to="/admin">Admin</router-link>
               </li>
               <li>
-                <router-link class="nav-link" to="/admins">Admin2</router-link>
+                <router-link class="nav-link" to="/contact"
+                  >Contact</router-link
+                >
               </li>
               <li>
-                <router-link class="nav-link" to="/contact">Contact</router-link>
-              </li>
-              <li>
-                <router-link class="nav-link" to="/login">Login/Register</router-link>
+                <router-link class="nav-link" to="/login"
+                  >Login/Register</router-link
+                >
               </li>
             </ul>
           </nav>
@@ -97,7 +102,7 @@ ul {
 }
 .nav-toggler span::before,
 .nav-toggler span::after {
-  content: '';
+  content: "";
   position: absolute;
   width: 100%;
   height: 100%;
@@ -134,18 +139,18 @@ ul {
     opacity: 0;
     visibility: hidden;
   }
-  .top #nav-check:checked~.nav {
+  .top #nav-check:checked ~ .nav {
     opacity: 2;
     visibility: visible;
   }
-  .top #nav-check:checked~.nav-toggler span {
+  .top #nav-check:checked ~ .nav-toggler span {
     background-color: transparent;
   }
-  .top #nav-check:checked~.nav-toggler span::before {
+  .top #nav-check:checked ~ .nav-toggler span::before {
     top: 0;
     transform: rotate(45deg);
   }
-  .top #nav-check:checked~.nav-toggler span::after {
+  .top #nav-check:checked ~ .nav-toggler span::after {
     top: 0;
     transform: rotate(-45deg);
   }
@@ -153,4 +158,5 @@ ul {
 .lagom {
   height: 2rem;
   padding-left: 1rem;
-}</style>
+}
+</style>
