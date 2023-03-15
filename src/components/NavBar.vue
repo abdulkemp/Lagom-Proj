@@ -32,6 +32,11 @@
                 >
               </li>
               <li>
+                <router-link class="nav-link" to="/spin"
+                  >Spinner</router-link
+                >
+              </li>
+              <li>
                 <router-link class="nav-link" to="/login"
                   >Login/Register</router-link
                 >

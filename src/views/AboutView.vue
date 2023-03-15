@@ -1,6 +1,7 @@
 <template>
   <div class="every">
     <NavBar />
+    <Spinner />
     <div>
       <div class="about">
         <div class="info">
@@ -51,9 +52,10 @@
 <script>
 import NavBar from "../components/NavBar.vue";
 import Footer from "../components/Footer.vue";
+import Spinner from '../components/Spinner.vue'
 export default {
   name: "About",
-  components: { NavBar, Footer },
+  components: { NavBar, Footer, Spinner },
 };
 </script>
 

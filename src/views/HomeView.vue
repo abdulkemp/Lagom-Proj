@@ -1,6 +1,7 @@
 <template>
   <div>
     <NavBar />
+    <Spinner />
     <div class="whole">
       <div class="land">
         <p>
@@ -77,6 +78,7 @@
         </div>
       </div>
       <products />
+     
     </div>
     </div>
     
@@ -84,12 +86,14 @@
 
 <script>
 import NavBar from "../components/NavBar.vue";
-import products from "../components/Products.vue"
+import products from "../components/Products.vue";
+import Spinner from '../components/Spinner.vue'
 export default {
   name: "HomeView",
   components: {
     NavBar,
     products,
+    Spinner
   },
   
 };

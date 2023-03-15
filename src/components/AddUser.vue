@@ -10,13 +10,13 @@
       </div>
       <div class="modal-body">
         <h1>Add User</h1>
-        <label class="label">Product Name</label>
+        <label class="label">FirstName</label>
         <input type="text">
-        <label class="label">Price</label>
+        <label class="label">LastName</label>
         <input type="text">
-        <label class="label">Category</label>
+        <label class="label">Email</label>
         <input type="text">
-        <label class="label">Quantity</label>
+        <label class="label">Password</label>
         <input type="text">
         <label class="label">Image</label>
         <input type="text">
