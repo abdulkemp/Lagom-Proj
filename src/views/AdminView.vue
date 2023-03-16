@@ -1,7 +1,7 @@
 <template>
     <div>
       <!-- <NavBar /> -->
-      <Spinner />
+      <!-- <Spinner /> -->
       <Admin/>
        <EditProduct/>
        <EditUser/>

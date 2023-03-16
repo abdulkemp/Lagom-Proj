@@ -1,15 +1,15 @@
 <template>
   <div>
     <NavBar />
-    <Spinner />
+
     <div class="whole">
       <div class="land">
         <p>
           <img
-          src="https://i.postimg.cc/YS2mQtYk/passionate-black-male-singer-performing-against-red-background-singing-into-microphone-wearing-party.jpg"
-          alt=""
-          srcset=""
-          class="landing"
+            src="https://i.postimg.cc/YS2mQtYk/passionate-black-male-singer-performing-against-red-background-singing-into-microphone-wearing-party.jpg"
+            alt=""
+            srcset=""
+            class="landing"
           />
         </p>
       </div>
@@ -78,26 +78,22 @@
         </div>
       </div>
       <products />
-     
     </div>
-    </div>
-    
+  </div>
 </template>
 
 <script>
 import NavBar from "../components/NavBar.vue";
 import products from "../components/Products.vue";
-import Spinner from '../components/Spinner.vue'
+import Spinner from "../components/Spinner.vue";
 export default {
   name: "HomeView",
   components: {
     NavBar,
     products,
-    Spinner
+    Spinner,
   },
-  
 };
-
 </script>
 
 <style>
@@ -116,7 +112,7 @@ export default {
   height: 16rem;
 }
 
-.landing{
+.landing {
   width: 100%;
   max-height: 100vh;
 }
@@ -128,11 +124,11 @@ export default {
 }
 
 @media screen and (max-width: 650px) {
-  .caro{
-    width:26rem;
+  .caro {
+    width: 26rem;
     max-width: 100%;
   }
-  .carousel-inner img{
+  .carousel-inner img {
     height: 10rem;
   }
 }

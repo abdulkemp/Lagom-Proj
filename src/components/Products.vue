@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="alles" v-if="items">
     <div class="line"></div>
     <div class="prod container">
       <div class="row">
@@ -24,6 +24,10 @@
       </div>
     </div>
   </div>
+  
+  <div v-else>
+  <Spinner />
+</div>
 </template>
 
 <script>

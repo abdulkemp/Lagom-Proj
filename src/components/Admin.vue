@@ -1,6 +1,8 @@
 <template>
-  <div class="body">
+  <div class="body" v-if="product"> 
+    <div v-if="user">
     <NavBar />
+    <div>
     <div class="container">
       <div class="row table-container">
         <div class="col-12">
@@ -100,15 +102,25 @@
       </div>
     </div>
   </div>
+</div>
+<div v-else>
+  <spinner />
+</div>
+</div>
+<div v-else>
+  <spinner />
+</div>
 </template>
 
 <script>
 import axios from "axios";
 import NavBar from "../components/NavBar.vue";
+import Spinner from '../components/Spinner.vue';
 export default {
   name: "admin-Comp",
   components: {
     NavBar,
+    Spinner,
   },  data() {
     return {
       product: [],

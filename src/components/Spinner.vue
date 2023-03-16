@@ -9,13 +9,6 @@
     export default {
         name: 'Spinner'
     }
-    window.addEventListener("load", () =>{
-        const spinner = document.querySelector(".spinner");
-        spinner.classList.add("spinner-hidden");
-        spinner.addEventListener("transitionend", ()=>{
-            document.body.removeChild("spinner")
-        })
-    })
 </script>
 
 <style >
@@ -56,7 +49,7 @@
     width: 100px;
     border: 6px solid;
     border-color: black transparent black transparent ;
-    border-radius: 40%;
+    border-radius: 50%;
     animation: spin 0.75s ease infinite;
 }
 
