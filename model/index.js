@@ -69,19 +69,21 @@ class User {
         });
     };
     async createUser(req, res) {
-        const detail = req.body;
+        let detail = req.body;
 
         detail.password = await hash(detail.password, 15);
 
-        const user = {
+        let user = {
             emailAdd: detail.emailAdd,
-            password: detail.password
+            password: detail.password,
+            // confirm_psw: detail.confirm_psw
         }
 
         const createQuery = `INSERT INTO Users SET ?;`;
 
         db.query(createQuery, [detail], (err) => {
             if (err) {
+                console.log(err)
                 res.status(401).json({
                     err
                 });
