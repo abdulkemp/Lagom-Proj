@@ -1,7 +1,7 @@
 <template>
   <div class="body">
     <div class="everything">
-      <div class="login ">
+      <div class="login">
         <div class="front">
           <img
             src="https://i.postimg.cc/fT2ShMJR/23edd32f3158992ec50d955d6b39157a.jpg"
@@ -28,14 +28,12 @@
               />
               <button class="btn btn-primary">Login</button>
               <router-link class="link" to="">Forget Password</router-link>
-              <router-link class="link" to="/register"
-                >Create Account</router-link
-              >
+              <router-link class="link" to="">Create Account</router-link>
             </form>
           </div>
         </div>
       </div>
-      <div class="register ">
+      <div class="register">
         <div class="front1">
           <img
             src="https://i.postimg.cc/fT2ShMJR/23edd32f3158992ec50d955d6b39157a.jpg"
@@ -44,7 +42,7 @@
         </div>
         <div class="form">
           <div class="log">
-            <form action="" class="loginform">
+            <form action="" @submit.prevent="register" class="loginform">
               <img
                 src="https://i.postimg.cc/26C74zH7/lagom-high-resolution-logo-black-on-transparent-background.png"
                 alt=""
@@ -52,19 +50,56 @@
               <h1 class="head">Welcome Back!</h1>
               <input
                 type="text"
-                placeholder="Insert your email."
-                class="my-2"
+                name="firstname"
+                label=""
+                v-model="payload.firstName"
+                placeholder="FirstName"
+              />
+              <input
+                type="text"
+                name="lastname"
+                label=""
+                v-model="payload.lastName"
+                placeholder="LastName"
+              />
+              <input
+                type="text"
+                name="email"
+                label=""
+                v-model="payload.emailAdd"
+                placeholder="Email"
               />
               <input
                 type="password"
-                placeholder="Insert your password."
-                class="my-2"
+                name="password"
+                label=""
+                v-model="payload.password"
+                placeholder="Create Password"
               />
-              <button class="btn btn-primary">Login</button>
-              <router-link class="link" to="">Forget Password</router-link>
-              <router-link class="link" to="/register"
-                >Create Account</router-link
+              <input
+                type="password"
+                name="confirm_psw"
+                label=""
+                v-model="payload.confirm_psw"
+                placeholder="Confirm Password"
+              />
+              <input
+                type="text"
+                name="profile image"
+                label=""
+                v-model="payload.imgPro"
+                placeholder="http://"
+              />
+              <button
+                class="btn btn-primary"
+                type="submit"
+                value="register"
+                @click="signUp"
               >
+                Register
+              </button>
+              <router-link class="link" to="">Forget Password</router-link>
+              <router-link class="link" to="">Create Account</router-link>
             </form>
           </div>
         </div>
@@ -74,7 +109,57 @@
 </template>
 
 <script>
-export default {};
+import {computed} from '@vue/runtime-core'
+import {useStore} from 'vuex'
+export default {
+  name: "LoginRegister",
+  // components: {
+  //   loginRegisterView,
+  // },
+  setup() {
+    const payload = {
+      firstName: "",
+      lastName: "",
+      emailAdd: "",
+      password: "",
+      imgPro: "",
+    };
+    const store = useStore();
+    const userMsg = computed( ()=>store.state.message)
+    return{
+      payload,
+      userMsg
+    }
+  },
+  methods:{
+    register(){
+      this.$store.dispatch("register", this.payload)
+    }
+  }
+
+  // data() {
+  //   return {
+  //     payload: {
+  //       firstName: "",
+  //       lastName: "",
+  //       emailAdd: "",
+  //       password: "",
+  //       imgPro: "",
+  //     },
+  //     confirm_psw: "",
+  //   };
+  // },
+  // methods: {
+  //   Register(){
+  //       if(this.payload.password !== this.confirm_psw){
+  //           alert('Password do not match')
+  //       }
+  //       else{
+  //           this.$store.dispatch("Register", this.payload)
+  //       }
+  //   }
+  // }
+};
 </script>
 
 <style>
@@ -320,7 +405,7 @@ button {
   .loginform .btn {
     font-size: 10px;
   }
-  .link{
+  .link {
     font-size: 10px;
     margin-top: 5px;
   }
@@ -384,7 +469,6 @@ button {
     font-size: 30px;
     margin-left: 2rem;
   }
-  
 }
 </style>
 

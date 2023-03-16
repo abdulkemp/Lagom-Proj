@@ -80,7 +80,7 @@
               <tr v-for="item in product" :key="item.id" class="bord">
                 <td>{{ item.id }}</td>
                 <td>{{ item.prodName }}</td>
-                <td>{{ item.price }}</td>
+                <td>R {{ item.price }}</td>
                 <td>{{ item.category }}</td>
                 <td>{{ item.quantity }}</td>
                 <td><img class="tableImg" :src="item.image" alt="" /></td>
@@ -93,7 +93,7 @@
                   >
                     Edit
                   </button>
-                  <button class="btn btton">Delete</button>
+                  <button type="button" class="btn btton" @click="deleteProduct(product.id) ">Delete</button>
                 </td>
               </tr>
             </tbody>
@@ -130,6 +130,7 @@ export default {
   created() {
     this.getProducts();
     this.getUsers();
+    // this.deleteProduct(id);
   },
   methods: {
     async getProducts() {
@@ -157,7 +158,7 @@ export default {
     async deleteProduct(id) {
       try {
         await axios.delete(`https://lagom-project.onrender.com/products/${id}`);
-        this.getProducts();
+        this.product();
       } catch (err) {
         console.log(err);
       }
