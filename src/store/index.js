@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
-const lagomURL = "https://localhost:8080/"
+const lagomURL = "https://lagom-project.onrender.com/"
 // import router from '../router/index'
 export default createStore({
   state: {
@@ -48,7 +48,7 @@ export default createStore({
     },
     async register(context, payload){
       console.log(payload);
-      fetch(`${lagomURL}register`, {
+      fetch(`https://lagom-project.onrender.com/register`, {
         method: 'POST',
         headers: {"Content-type": "application/json; charset=UTF-8"},
         body: JSON.stringify(payload)
@@ -56,6 +56,20 @@ export default createStore({
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+      })
+    },
+    async login(context, payload){
+      console.log(payload);
+      fetch(`https://lagom-project.onrender.com/login`, {
+        method: 'POST',
+        mode: 'cors',
+        headers: {"Content-type": "application/json; charset=UTF-8"},
+        body: JSON.stringify(payload)
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        // console.log(err);
       })
     },
 

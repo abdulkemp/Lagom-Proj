@@ -10,22 +10,14 @@
         </div>
         <div class="form">
           <div class="log">
-            <form action="" class="loginform">
+            <form action="" @submit="login" class="loginform">
               <img
                 src="https://i.postimg.cc/26C74zH7/lagom-high-resolution-logo-black-on-transparent-background.png"
                 alt=""
               />
               <h1 class="head">Welcome Back!</h1>
-              <input
-                type="text"
-                placeholder="Insert your email."
-                class="my-2"
-              />
-              <input
-                type="password"
-                placeholder="Insert your password."
-                class="my-2"
-              />
+              <input type="email" v-model="emailAdd" placeholder="Email" required />
+              <input type="password" v-model="password" placeholder="password" required />
               <button class="btn btn-primary">Login</button>
               <router-link class="link" to="">Forget Password</router-link>
               <router-link class="link" to="">Create Account</router-link>
@@ -92,11 +84,19 @@ export default {
       const payload = {
         firstName: this.firstName,
         lastName: this.lastName,
-        emailAdd: this.email,
+        emailAdd: this.emailAdd,
         password: this.password
       };
       this.$store.dispatch("register", payload);
     },
+    login(e) {
+      e.preventDefault();
+      const payload = {
+        emailAdd: this.emailAdd,
+        password: this.password
+      };
+      this.$store.dispatch("login", payload);
+    }
     // submitform(){
     //   axios.post(`${lagomURL}posts`, {
     //     firstName: this.firstName,
