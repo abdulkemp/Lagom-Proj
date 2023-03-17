@@ -50,6 +50,7 @@ export default createStore({
       console.log(payload);
       fetch(`https://lagom-project.onrender.com/register`, {
         method: 'POST',
+        mode: 'cors',
         headers: {"Content-type": "application/json; charset=UTF-8"},
         body: JSON.stringify(payload)
       })

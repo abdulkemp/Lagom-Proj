@@ -16,9 +16,9 @@
                 alt=""
               />
               <h1 class="head">Welcome Back!</h1>
-              <input type="email" v-model="emailAdd" placeholder="Email" required />
-              <input type="password" v-model="password" placeholder="password" required />
-              <button class="btn btn-primary">Login</button>
+              <input class="input" type="email" v-model="emailAdd" placeholder="Email" required />
+              <input class="input" type="password" v-model="password" placeholder="password" required />
+              <button type="submit" class="btn btn-primary">Login</button>
               <router-link class="link" to="">Forget Password</router-link>
               <router-link class="link" to="">Create Account</router-link>
             </form>
@@ -34,16 +34,15 @@
         </div>
         <div class="form">
           <div class="log">
-            <form action="" @submit="register" class="loginform">
+            <form action="" @submit="register" class="registerform">
               <img
                 src="https://i.postimg.cc/26C74zH7/lagom-high-resolution-logo-black-on-transparent-background.png"
                 alt=""
               />
-              <h1 class="head">Welcome Back!</h1>
-              <input v-model="firstName" type="text" placeholder="Name" required />
-              <input v-model="lastName" type="text" placeholder="Surname" required />
-              <input v-model="emailAdd" type="email" placeholder="Email" required />
-              <input v-model="password" type="password" placeholder="Password" required />
+              <input class="input" v-model="firstName" type="text" placeholder="Name" required />
+              <input class="input" v-model="lastName" type="text" placeholder="Surname" required />
+              <input class="input" v-model="emailAdd" type="email" placeholder="Email" required />
+              <input class="input" v-model="password" type="password" placeholder="Password" required />
               <!-- <input
                 type="text"
                 name="profile image"
@@ -51,7 +50,7 @@
                 v-model="imgPro"
                 placeholder="http://"
               /> -->
-              <button type="submit">Register</button>
+              <button type="submit" class="btn btn-primary">Register</button>
               <router-link class="link" to="">Forget Password</router-link>
               <router-link class="link" to="">Create Account</router-link>
             </form>
@@ -97,59 +96,10 @@ export default {
       };
       this.$store.dispatch("login", payload);
     }
-    // submitform(){
-    //   axios.post(`${lagomURL}posts`, {
-    //     firstName: this.firstName,
-    //     lastName: this.lastName,
-    //     emailAdd: this.emailAdd,
-    //     password:this.password,
-    //     imgPro: this.imgPro
-    //   }).then(response =>{
-    //     this.success = 'Data saved successfully';
-    //     this.response = JSON.stringify(response, null, 2)
-    //   }).catch(error => {
-    //     this.response = 'Error: ' + error.response.status
-    //   })
-    //   this.firstName ='';
-    //   this.lastName = '';
-    //   this.emailAdd ='';
-    //   this.password ='';
-    //   this.imgPro= '';
-    // }
+    
   }
 };
-  // components: {
-  //   loginRegisterView,
-  // },
-  // setup() {
-  //   const payload = {
-  //     firstName: "",
-  //     lastName: "",
-  //     emailAdd: "",
-  //     password: "",
-  //     imgPro: "",
-  //   };
-  //   const store = useStore();
-  //   const userMsg = computed( ()=>store.state.message);
   
-  //   return{
-  //     payload,
-  //     userMsg,
-      // emailAdd,
-      // password
-  //   }
-  // },
-  
-// methods: {
-//   Register(){
-//       if(this.payload.password !== this.confirm_psw){
-//           alert('Password do not match')
-//       }
-//       else{
-//           this.$store.dispatch("Register", this.payload)
-//       }
-//   }
-// }
 </script>
 
 <style>
@@ -225,7 +175,13 @@ export default {
 }
 
 .loginform input {
-  margin-bottom: 2rem;
+  margin-bottom:20px;
+  border: none;
+  border-bottom: 1px solid black;
+  background: rgba(128, 128, 128, 0.322);
+}
+.registerform input {
+  margin-bottom: 1rem;
   border: none;
   border-bottom: 1px solid black;
   background: rgba(128, 128, 128, 0.322);
@@ -235,6 +191,14 @@ export default {
   display: contents;
   justify-content: center;
   align-items: center;
+}
+.registerform {
+  display: contents;
+  justify-content: center;
+  align-items: center;
+}
+.registerform img{
+  margin-bottom: 1rem;
 }
 
 .everything {
@@ -349,6 +313,9 @@ button {
   transform-style: preserve-3d;
   /* visibility: hidden; */
 }
+.link{
+  text-decoration: underline;
+}
 
 @media screen and (max-width: 650px) {
   .login .front img {
@@ -356,6 +323,13 @@ button {
     height: 300px;
     /* visibility: hidden; */
   }
+   .registerform .input {
+  margin-bottom: 8px;
+  border: none;
+  border-bottom: 1px solid black;
+  background: rgba(128, 128, 128, 0.322);
+}
+
   .register .front1 img {
     width: 150px;
     height: 300px;
@@ -377,32 +351,38 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 5px;
   }
 
-  .my-2 {
-    width: 110px;
-    position: relative;
-    float: left;
+  .loginform .input{
+    margin-bottom: 8px;
+  border: none;
+  border-bottom: 1px solid black;
+  background: rgba(128, 128, 128, 0.322);
+  }
+  .registerform img {
+    width: 6rem;
+    margin-left: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .loginform .btn {
     font-size: 10px;
   }
-  button .btn {
-    width: 50px;
-    position: relative;
-    float: right;
-    margin-top: 10px;
-    margin-bottom: 3px;
-  }
-  .loginform .btn {
+  .registerform .btn {
     font-size: 10px;
   }
   .link {
     font-size: 10px;
     margin-top: 5px;
+    
   }
-  .loginform h1 {
+  .loginform .head{
     font-size: 15px;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    /* margin-top: 2rem; */
+    /* margin-bottom: 1rem; */
     margin-left: 3px;
   }
   .login:hover {
@@ -412,10 +392,7 @@ button {
     transform: translateX(-50%);
   }
 
-  /* 
-  .loginform input{
-    margin-top: 10px;
-  } */
+
 }
 @media screen and (max-width: 900px) {
   .body {
@@ -431,6 +408,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 2rem;
   }
   .everything {
     display: inline-block;
