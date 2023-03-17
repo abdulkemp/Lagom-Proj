@@ -42,7 +42,7 @@
         </div>
         <div class="form">
           <div class="log">
-            <form action="" @submit.prevent="register" class="loginform">
+            <form action="" @submit.prevent="register" name="POST" class="loginform">
               <img
                 src="https://i.postimg.cc/26C74zH7/lagom-high-resolution-logo-black-on-transparent-background.png"
                 alt=""
@@ -75,13 +75,6 @@
                 label=""
                 v-model="payload.password"
                 placeholder="Create Password"
-              />
-              <input
-                type="password"
-                name="confirm_psw"
-                label=""
-                v-model="payload.confirm_psw"
-                placeholder="Confirm Password"
               />
               <input
                 type="text"
@@ -125,10 +118,13 @@ export default {
       imgPro: "",
     };
     const store = useStore();
-    const userMsg = computed( ()=>store.state.message)
+    const userMsg = computed( ()=>store.state.message);
+  
     return{
       payload,
-      userMsg
+      userMsg,
+      // emailAdd,
+      // password
     }
   },
   methods:{
