@@ -16,7 +16,7 @@ class User {
             emailAdd,
             password
         } = req.body;
-        const verifyQuery = `select userID, firstName, lastName, emailAdd, password FROM Users where emailAdd = '${emailAdd}';`;
+        const verifyQuery = `select * FROM Users where emailAdd = '${emailAdd}';`;
 
         db.query(verifyQuery, async (err, data) => {
             const userLog = data
@@ -79,9 +79,9 @@ class User {
             // confirm_psw: detail.confirm_psw
         }
 
-        const createQuery = `INSERT INTO Users SET ?;`;
+        const strQry = `INSERT INTO Users SET ?;`;
 
-        db.query(createQuery, [detail], (err) => {
+        db.query(strQry, [detail], (err) => {
             if (err) {
                 console.log(err)
                 res.status(401).json({
