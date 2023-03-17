@@ -42,55 +42,24 @@
         </div>
         <div class="form">
           <div class="log">
-            <form action="" @submit.prevent="register" name="POST" class="loginform">
+            <form action="" @submit="register" class="loginform">
               <img
                 src="https://i.postimg.cc/26C74zH7/lagom-high-resolution-logo-black-on-transparent-background.png"
                 alt=""
               />
               <h1 class="head">Welcome Back!</h1>
-              <input
-                type="text"
-                name="firstname"
-                label=""
-                v-model="payload.firstName"
-                placeholder="FirstName"
-              />
-              <input
-                type="text"
-                name="lastname"
-                label=""
-                v-model="payload.lastName"
-                placeholder="LastName"
-              />
-              <input
-                type="text"
-                name="email"
-                label=""
-                v-model="payload.emailAdd"
-                placeholder="Email"
-              />
-              <input
-                type="password"
-                name="password"
-                label=""
-                v-model="payload.password"
-                placeholder="Create Password"
-              />
-              <input
+              <input v-model="firstName" type="text" placeholder="Name" required />
+              <input v-model="lastName" type="text" placeholder="Surname" required />
+              <input v-model="emailAdd" type="email" placeholder="Email" required />
+              <input v-model="password" type="password" placeholder="Password" required />
+              <!-- <input
                 type="text"
                 name="profile image"
                 label=""
-                v-model="payload.imgPro"
+                v-model="imgPro"
                 placeholder="http://"
-              />
-              <button
-                class="btn btn-primary"
-                type="submit"
-                value="register"
-                @click="signUp"
-              >
-                Register
-              </button>
+              /> -->
+              <button type="submit">Register</button>
               <router-link class="link" to="">Forget Password</router-link>
               <router-link class="link" to="">Create Account</router-link>
             </form>
@@ -104,58 +73,83 @@
 <script>
 import {computed} from '@vue/runtime-core'
 import {useStore} from 'vuex'
+import axios from 'axios';
+import lagomURL from '../store/index'
 export default {
   name: "LoginRegister",
-  // components: {
-  //   loginRegisterView,
-  // },
-  setup() {
-    const payload = {
+  data() {
+    return {
       firstName: "",
       lastName: "",
       emailAdd: "",
       password: "",
-      imgPro: "",
+      // imgPro: "",
     };
-    const store = useStore();
-    const userMsg = computed( ()=>store.state.message);
-  
-    return{
-      payload,
-      userMsg,
-      // emailAdd,
-      // password
-    }
   },
   methods:{
-    register(){
-      this.$store.dispatch("register", this.payload)
-    }
+    register(e) {
+      e.preventDefault();
+      const payload = {
+        firstName: this.firstName,
+        lastName: this.lastName,
+        emailAdd: this.email,
+        password: this.password
+      };
+      this.$store.dispatch("register", payload);
+    },
+    // submitform(){
+    //   axios.post(`${lagomURL}posts`, {
+    //     firstName: this.firstName,
+    //     lastName: this.lastName,
+    //     emailAdd: this.emailAdd,
+    //     password:this.password,
+    //     imgPro: this.imgPro
+    //   }).then(response =>{
+    //     this.success = 'Data saved successfully';
+    //     this.response = JSON.stringify(response, null, 2)
+    //   }).catch(error => {
+    //     this.response = 'Error: ' + error.response.status
+    //   })
+    //   this.firstName ='';
+    //   this.lastName = '';
+    //   this.emailAdd ='';
+    //   this.password ='';
+    //   this.imgPro= '';
+    // }
   }
-
-  // data() {
-  //   return {
-  //     payload: {
-  //       firstName: "",
-  //       lastName: "",
-  //       emailAdd: "",
-  //       password: "",
-  //       imgPro: "",
-  //     },
-  //     confirm_psw: "",
-  //   };
-  // },
-  // methods: {
-  //   Register(){
-  //       if(this.payload.password !== this.confirm_psw){
-  //           alert('Password do not match')
-  //       }
-  //       else{
-  //           this.$store.dispatch("Register", this.payload)
-  //       }
-  //   }
-  // }
 };
+  // components: {
+  //   loginRegisterView,
+  // },
+  // setup() {
+  //   const payload = {
+  //     firstName: "",
+  //     lastName: "",
+  //     emailAdd: "",
+  //     password: "",
+  //     imgPro: "",
+  //   };
+  //   const store = useStore();
+  //   const userMsg = computed( ()=>store.state.message);
+  
+  //   return{
+  //     payload,
+  //     userMsg,
+      // emailAdd,
+      // password
+  //   }
+  // },
+  
+// methods: {
+//   Register(){
+//       if(this.payload.password !== this.confirm_psw){
+//           alert('Password do not match')
+//       }
+//       else{
+//           this.$store.dispatch("Register", this.payload)
+//       }
+//   }
+// }
 </script>
 
 <style>

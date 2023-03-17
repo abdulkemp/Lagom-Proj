@@ -1,6 +1,6 @@
 import { createStore } from 'vuex'
 import axios from 'axios'
-const lagomURL = "https://lagom-project.onrender.com/"
+const lagomURL = "https://localhost:8080/"
 // import router from '../router/index'
 export default createStore({
   state: {
@@ -47,22 +47,17 @@ export default createStore({
       }
     },
     async register(context, payload){
-      const res = await axios.post(`${lagomURL}register`, payload);
-      const {msg,err} = await res.data;
-      if(msg){
-        context.commit('setMessage',msg)
-      }
-      else{
-        context.commit('setMessage',err)
-      }
-      // const {msg, err} =await res.data;
-      // if(msg){
-      //   router.push ('/login')
-      // } 
-      // else if (err){
-      //   alert(err)
-      // }
-    }
+      console.log(payload);
+      fetch(`${lagomURL}register`, {
+        method: 'POST',
+        headers: {"Content-type": "application/json; charset=UTF-8"},
+        body: JSON.stringify(payload)
+      })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      })
+    },
 
   },
   modules: {
