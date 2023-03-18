@@ -58,6 +58,9 @@ export default createStore({
       .then((data) => {
         console.log(data);
       })
+      .catch((err)=>{
+        console.log(err);
+      })
     },
     async login(context, payload){
       console.log(payload);
