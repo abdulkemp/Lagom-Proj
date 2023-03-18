@@ -16,8 +16,20 @@
                 alt=""
               />
               <h1 class="head">Welcome Back!</h1>
-              <input class="input" type="email" v-model="emailAdd" placeholder="Email" required />
-              <input class="input" type="password" v-model="password" placeholder="password" required />
+              <input
+                class="input"
+                type="email"
+                v-model="emailAdd"
+                placeholder="Email"
+                required
+              />
+              <input
+                class="input"
+                type="password"
+                v-model="password"
+                placeholder="password"
+                required
+              />
               <button type="submit" class="btn btn-primary">Login</button>
               <router-link class="link" to="">Forget Password</router-link>
               <router-link class="link" to="">Create Account</router-link>
@@ -39,10 +51,34 @@
                 src="https://i.postimg.cc/26C74zH7/lagom-high-resolution-logo-black-on-transparent-background.png"
                 alt=""
               />
-              <input class="input" v-model="firstName" type="text" placeholder="Name" required />
-              <input class="input" v-model="lastName" type="text" placeholder="Surname" required />
-              <input class="input" v-model="emailAdd" type="email" placeholder="Email" required />
-              <input class="input" v-model="password" type="password" placeholder="Password" required />
+              <input
+                class="input"
+                v-model="firstName"
+                type="text"
+                placeholder="Name"
+                required
+              />
+              <input
+                class="input"
+                v-model="lastName"
+                type="text"
+                placeholder="Surname"
+                required
+              />
+              <input
+                class="input"
+                v-model="emailAdd"
+                type="email"
+                placeholder="Email"
+                required
+              />
+              <input
+                class="input"
+                v-model="password"
+                type="password"
+                placeholder="Password"
+                required
+              />
               <!-- <input
                 type="text"
                 name="profile image"
@@ -62,10 +98,10 @@
 </template>
 
 <script>
-import {computed} from '@vue/runtime-core'
-import {useStore} from 'vuex'
-import axios from 'axios';
-import lagomURL from '../store/index'
+import { computed } from "@vue/runtime-core";
+import { useStore } from "vuex";
+import axios from "axios";
+import lagomURL from "../store/index";
 export default {
   name: "LoginRegister",
   data() {
@@ -77,14 +113,14 @@ export default {
       // imgPro: "",
     };
   },
-  methods:{
+  methods: {
     register(e) {
       e.preventDefault();
       const payload = {
         firstName: this.firstName,
         lastName: this.lastName,
         emailAdd: this.emailAdd,
-        password: this.password
+        password: this.password,
       };
       this.$store.dispatch("register", payload);
     },
@@ -92,14 +128,13 @@ export default {
       e.preventDefault();
       const payload = {
         emailAdd: this.emailAdd,
-        password: this.password
+        password: this.password,
       };
       this.$store.dispatch("login", payload);
-    }
-    
-  }
+      this.$router.push("/");
+    },
+  },
 };
-  
 </script>
 
 <style>
@@ -175,7 +210,7 @@ export default {
 }
 
 .loginform input {
-  margin-bottom:20px;
+  margin-bottom: 20px;
   border: none;
   border-bottom: 1px solid black;
   background: rgba(128, 128, 128, 0.322);
@@ -197,7 +232,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.registerform img{
+.registerform img {
   margin-bottom: 1rem;
 }
 
@@ -313,7 +348,7 @@ button {
   transform-style: preserve-3d;
   /* visibility: hidden; */
 }
-.link{
+.link {
   text-decoration: underline;
 }
 
@@ -323,12 +358,12 @@ button {
     height: 300px;
     /* visibility: hidden; */
   }
-   .registerform .input {
-  margin-bottom: 8px;
-  border: none;
-  border-bottom: 1px solid black;
-  background: rgba(128, 128, 128, 0.322);
-}
+  .registerform .input {
+    margin-bottom: 8px;
+    border: none;
+    border-bottom: 1px solid black;
+    background: rgba(128, 128, 128, 0.322);
+  }
 
   .register .front1 img {
     width: 150px;
@@ -354,11 +389,11 @@ button {
     margin-bottom: 5px;
   }
 
-  .loginform .input{
+  .loginform .input {
     margin-bottom: 8px;
-  border: none;
-  border-bottom: 1px solid black;
-  background: rgba(128, 128, 128, 0.322);
+    border: none;
+    border-bottom: 1px solid black;
+    background: rgba(128, 128, 128, 0.322);
   }
   .registerform img {
     width: 6rem;
@@ -367,7 +402,7 @@ button {
     justify-content: center;
     align-items: center;
   }
-  
+
   .loginform .btn {
     font-size: 10px;
   }
@@ -377,9 +412,8 @@ button {
   .link {
     font-size: 10px;
     margin-top: 5px;
-    
   }
-  .loginform .head{
+  .loginform .head {
     font-size: 15px;
     /* margin-top: 2rem; */
     /* margin-bottom: 1rem; */
@@ -391,8 +425,6 @@ button {
   .register:hover {
     transform: translateX(-50%);
   }
-
-
 }
 @media screen and (max-width: 900px) {
   .body {

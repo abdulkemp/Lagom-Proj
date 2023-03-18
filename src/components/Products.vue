@@ -6,14 +6,24 @@
         <div class="col-md-4 mt-5" v-for="item in items" :key="item.id">
           <div class="card">
             <div class="ima">
-              <img :src="item.image" class="card-img-top" alt="..." style="height: 20rem; max-width: 30rem" />
+              <img
+                :src="item.image"
+                class="card-img-top"
+                alt="..."
+                style="height: 20rem; max-width: 30rem"
+              />
             </div>
             <div class="card-body">
               <h5 class="card-title">{{ item.prodName }}</h5>
               <!-- <p class="card-text">R {{ item.price }}</p> -->
               <button class="bt">Add to cart</button>
-              <button type="button" class="bt1" data-bs-toggle="modal"
-                data-bs-target="#exampleModalFullscreen" :id="item.id">
+              <button
+                type="button"
+                class="bt1"
+                data-bs-toggle="modal"
+                data-bs-target="#exampleModalFullscreen"
+                :id="item.id"
+              >
                 Show more...
               </button>
             </div>
@@ -38,7 +48,7 @@ export default {
   name: "products",
   components: {
     Footer,
-    SingleProduct
+    SingleProduct,
   },
   data() {
     return {

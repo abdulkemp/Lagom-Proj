@@ -1,127 +1,147 @@
 <template>
-  <div class="body" v-if="product"> 
+  <div class="body" v-if="product">
     <div v-if="user">
-    <NavBar />
-    <div>
-    <div class="container">
-      <div class="row table-container">
-        <div class="col-12">
-          <h1>Users</h1>
-          <button
-            type="button"
-            class="btn btn-success add-btn"
-            data-bs-toggle="modal"
-            data-bs-target="#addUserModal"
-          >
-            Add
-          </button>
-        </div>
-        <div class="col">
-          <table class="table is-striped is-bordered mt-2 is-fullwidth">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>FirstName</th>
-                <th>LastName</th>
-                <th>Email</th>
-                <th>Image</th>
-                <th>Edit/Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="item in user" :key="item.userID " class="bord">
-                <td>{{ item.userID }}</td>
-                <td>{{ item.firstName }}</td>
-                <td>{{ item.lastName }}</td>
-                <td>{{ item.emailAdd }}</td>
-                <td><img class="tableImg" :src="item.imgPro" alt="" /></td>
-                <td>
-                  <button
-                    type="button"
-                    class="btn bton"
-                    data-bs-toggle="modal"
-                    data-bs-target="#editUserModal"
-                  >
-                    Edit
-                  </button>
-                  <button class="btn btton">Delete</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+      <NavBar />
+      <div>
+        <div class="container">
+          <div class="row table-container">
+            <div class="col-12">
+              <h1>Users</h1>
+              <button
+                type="button"
+                class="btn btn-success add-btn"
+                data-bs-toggle="modal"
+                data-bs-target="#addUserModal"
+              >
+                Add
+              </button>
+            </div>
+            <div class="col">
+              <table class="table is-striped is-bordered mt-2 is-fullwidth">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>FirstName</th>
+                    <th>LastName</th>
+                    <th>Email</th>
+                    <th>Image</th>
+                    <th>Edit/Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="item in user" :key="item.userID" class="bord">
+                    <td>{{ item.userID }}</td>
+                    <td>{{ item.firstName }}</td>
+                    <td>{{ item.lastName }}</td>
+                    <td>{{ item.emailAdd }}</td>
+                    <td><img class="tableImg" :src="item.imgPro" alt="" /></td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn bton"
+                        data-bs-toggle="modal"
+                        data-bs-target="#editUserModal"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btton"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                        :id="item.userid"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="row table-container">
+            <div class="col-12">
+              <h1>Products</h1>
+              <button
+                type="button"
+                class="btn btn-success add-btn"
+                data-bs-toggle="modal"
+                data-bs-target="#addProductModal"
+              >
+                Add
+              </button>
+            </div>
+            <div class="col">
+              <table class="table is-striped is-bordered mt-2 is-fullwidth">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>Image</th>
+                    <th>Edit/Delete</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="item in product" :key="item.id" class="bord">
+                    <td>{{ item.id }}</td>
+                    <td>{{ item.prodName }}</td>
+                    <td>{{ item.price }}</td>
+                    <td>{{ item.category }}</td>
+                    <td>{{ item.quantity }}</td>
+                    <td><img class="tableImg" :src="item.image" alt="" /></td>
+                    <td>
+                      <button
+                        type="button"
+                        class="btn bton"
+                        data-bs-toggle="modal"
+                        data-bs-target="#editProductModal"
+                      >
+                        Edit
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btton"
+                        data-bs-toggle="modal"
+                        data-bs-target="#exampleModal"
+                        :id="item.id"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="row table-container">
-        <div class="col-12">
-          <h1>Products</h1>
-          <button
-            type="button"
-            class="btn btn-success add-btn"
-            data-bs-toggle="modal"
-            data-bs-target="#addProductModal"
-          >
-            Add
-          </button>
-        </div>
-        <div class="col">
-          <table class="table is-striped is-bordered mt-2 is-fullwidth">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Product Name</th>
-                <th>Price</th>
-                <th>Category</th>
-                <th>Quantity</th>
-                <th>Image</th>
-                <th>Edit/Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr v-for="item in product" :key="item.id" class="bord">
-                <td>{{ item.id }}</td>
-                <td>{{ item.prodName }}</td>
-                <td>R {{ item.price }}</td>
-                <td>{{ item.category }}</td>
-                <td>{{ item.quantity }}</td>
-                <td><img class="tableImg" :src="item.image" alt="" /></td>
-                <td>
-                  <button
-                    type="button"
-                    class="btn bton"
-                    data-bs-toggle="modal"
-                    data-bs-target="#editProductModal"
-                  >
-                    Edit
-                  </button>
-                  <button type="button" class="btn btton" @click="deleteProduct(product.id) ">Delete</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <Delete />
+    </div>
+    <div v-else>
+      <spinner />
     </div>
   </div>
-</div>
-<div v-else>
-  <spinner />
-</div>
-</div>
-<div v-else>
-  <spinner />
-</div>
+  <div v-else>
+    <spinner />
+  </div>
 </template>
 
 <script>
 import axios from "axios";
 import NavBar from "../components/NavBar.vue";
-import Spinner from '../components/Spinner.vue';
+import Spinner from "../components/Spinner.vue";
+import Delete from "../components/DeleteProduct.vue";
 export default {
   name: "admin-Comp",
   components: {
     NavBar,
     Spinner,
-  },  data() {
+    Delete,
+  },
+  data() {
     return {
       product: [],
       user: [],
@@ -158,7 +178,7 @@ export default {
     async deleteProduct(id) {
       try {
         await axios.delete(`https://lagom-project.onrender.com/products/${id}`);
-        this.product();
+        this.getProducts();
       } catch (err) {
         console.log(err);
       }
@@ -206,13 +226,13 @@ tbody button {
   color: white;
   border: 1px solid black;
 }
-.table{
+.table {
   border-bottom: 1px solid black;
   justify-content: center;
   align-items: center;
   border-collapse: collapse;
 }
-.container{
+.container {
   margin-top: 5rem;
   text-align: center;
 }
