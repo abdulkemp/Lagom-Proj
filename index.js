@@ -18,14 +18,16 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(route);
+
 
 app.use(
     cors(),
     cookieParser(),
+    route,
     express.json,
     express.urlencoded({extended: false})
 );
+// app.use(route);
 
 route.get('/', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, '../view/index.html'));
