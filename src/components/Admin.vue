@@ -3,7 +3,7 @@
     <div v-if="user">
       <NavBar />
       <div>
-        <div class="container">
+        <div class="container ">
           <div class="row table-container">
             <div class="col-12">
               <h1>Users</h1>
@@ -17,7 +17,7 @@
               </button>
             </div>
             <div class="col">
-              <table class="table is-striped is-bordered mt-2 is-fullwidth">
+              <table class="table is-striped is-bordered mt-2 is-fullwidth array-lists">
                 <thead>
                   <tr>
                     <th>#</th>
@@ -41,6 +41,7 @@
                         class="btn bton"
                         data-bs-toggle="modal"
                         data-bs-target="#editUserModal"
+                        id="edit-row"
                       >
                         Edit
                       </button>
@@ -49,7 +50,7 @@
                         class="btn btton"
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal"
-                        :id="item.userid"
+                        id="delete-row"
                       >
                         Delete
                       </button>
@@ -72,7 +73,7 @@
               </button>
             </div>
             <div class="col">
-              <table class="table is-striped is-bordered mt-2 is-fullwidth">
+              <table class="table is-striped is-bordered mt-2 is-fullwidth array-listsarray-lists">
                 <thead>
                   <tr>
                     <th>#</th>
@@ -88,7 +89,7 @@
                   <tr v-for="item in product" :key="item.id" class="bord">
                     <td>{{ item.id }}</td>
                     <td>{{ item.prodName }}</td>
-                    <td>{{ item.price }}</td>
+                    <td>R {{ item.price }}</td>
                     <td>{{ item.category }}</td>
                     <td>{{ item.quantity }}</td>
                     <td><img class="tableImg" :src="item.image" alt="" /></td>
@@ -98,6 +99,7 @@
                         class="btn bton"
                         data-bs-toggle="modal"
                         data-bs-target="#editProductModal"
+                        id="edit-row"
                       >
                         Edit
                       </button>
@@ -106,7 +108,7 @@
                         class="btn btton"
                         data-bs-toggle="modal"
                         data-bs-target="#exampleModal"
-                        :id="item.id"
+                        id="delete-row"
                       >
                         Delete
                       </button>
@@ -134,12 +136,14 @@ import axios from "axios";
 import NavBar from "../components/NavBar.vue";
 import Spinner from "../components/Spinner.vue";
 import Delete from "../components/DeleteProduct.vue";
+import store from "@/store";
 export default {
   name: "admin-Comp",
   components: {
     NavBar,
     Spinner,
     Delete,
+    store
   },
   data() {
     return {
@@ -152,6 +156,7 @@ export default {
     this.getUsers();
     // this.deleteProduct(id);
   },
+  
   methods: {
     async getProducts() {
       try {
