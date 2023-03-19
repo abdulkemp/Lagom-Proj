@@ -34,7 +34,7 @@ route.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server is running at ${port}`);
+    console.log(`port on ${port}`);
 });
 
 app.use(errorHandling);
