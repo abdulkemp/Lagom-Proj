@@ -25,7 +25,7 @@
           <div class="modal-body">
             <div class="row1">
               <div class="col-md-auto">
-                <div class="cont">
+                <div class="conta">
                   <div class="imag d">
                     <img
                       src="https://i.postimg.cc/3Jkv9QPN/photo-1493612276216-ee3925520721.jpg"
@@ -84,10 +84,10 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
-.imag {
+/* .imag {
   height: 30rem;
   max-height: 100%;
-}
+} */
 .d {
   width: 100%;
   max-width: 100%;
@@ -150,7 +150,7 @@ h1{
 .c2{
     border: 0px 0px 0px 1px solid black;
 }
-.cont {
+.conta {
   /* width: 35rem; */
   height: 20rem;
   border: 6px solid black;

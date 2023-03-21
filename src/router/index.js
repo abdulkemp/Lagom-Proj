@@ -34,6 +34,11 @@ const routes = [
     path: '/spin',
     name: 'spin',
     component: () => import ('../views/SpinnerView.vue')
+  },
+  {
+    path: '/cart',
+    name: 'cart',
+    component: () => import ('../views/CartView.vue')
   }
 ]
 

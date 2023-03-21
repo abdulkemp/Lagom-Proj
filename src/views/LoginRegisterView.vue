@@ -98,10 +98,6 @@
 </template>
 
 <script>
-import { computed } from "@vue/runtime-core";
-import { useStore } from "vuex";
-import axios from "axios";
-import lagomURL from "../store/index";
 export default {
   name: "LoginRegister",
   data() {

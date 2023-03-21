@@ -104,6 +104,46 @@ export default createStore({
           console.log(err);
         });
     },
+    async updateUser(req, res,context, payload) {
+      const data = req.body;
+      fetch(`https://lagom-project.onrender.com/user`, {
+        method: "PUT",
+        mode: "cors",
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+        body: JSON.stringify(payload),
+      })
+      // if (data.password !== null || data.password !== undefined)
+      //     data.password = hashSync(data.password, 15);
+
+      // const updateQuery = `UPDATE Users SET ? WHERE userID = ?;`;
+
+      db.query(updateQuery, [data, req.params.id], (err) => {
+          if (err) throw err, console.log(err);
+          res.status(200).json({
+              msg: 'A row was affected.'
+          });
+      });
+  },
+    // async updateUser(context, payload) {
+    //   console.log(payload);
+    //   fetch(`https://lagom-project.onrender.com/user`, {
+    //     method: "PUT",
+    //     mode: "cors",
+    //     headers: {
+    //       "Content-type": "application/json; charset=UTF-8",
+    //     },
+    //     body: JSON.stringify(payload),
+    //   })
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //       console.log(data);
+    //     })
+    //     .catch((err) => {
+    //       console.log(err);
+    //     });
+    // },
     async login(context, payload) {
       console.log(payload);
       fetch(`https://lagom-project.onrender.com/login`, {

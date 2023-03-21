@@ -56,11 +56,12 @@
             <button
               class="btn btn-success mt-3"
               @click="($event) => register()"
+              data-bs-dismiss="modal"
             >
               Add
             </button>
           </div>
-          <div class="modal-footer">
+          <!-- <div class="modal-footer">
             <button
               type="button"
               class="btn btn-secondary"
@@ -69,7 +70,7 @@
               Close
             </button>
             <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>

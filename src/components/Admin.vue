@@ -73,7 +73,7 @@
               </button>
             </div>
             <div class="col">
-              <table class="table is-striped is-bordered mt-2 is-fullwidth array-listsarray-lists">
+              <table class="table is-striped is-bordered mt-2 is-fullwidth array-listsarray-lists"  @submit="deleteProduct">
                 <thead>
                   <tr>
                     <th>#</th>
@@ -94,6 +94,7 @@
                     <td>{{ item.quantity }}</td>
                     <td><img class="tableImg" :src="item.image" alt="" /></td>
                     <td>
+                      
                       <button
                         type="button"
                         class="btn bton"
@@ -104,10 +105,9 @@
                         Edit
                       </button>
                       <button
-                        type="button"
+                        type="submit"
                         class="btn btton"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
+                        @click="($event) => deleteProduct()"
                         id="delete-row"
                       >
                         Delete
@@ -154,7 +154,7 @@ export default {
   created() {
     this.getProducts();
     this.getUsers();
-    // this.deleteProduct(id);
+    this.deleteProduct();
   },
   
   methods: {
@@ -180,10 +180,10 @@ export default {
         console.log(err);
       }
     },
-    async deleteProduct(id) {
+    async deleteProduct() {
       try {
         await axios.delete(`https://lagom-project.onrender.com/products/${id}`);
-        this.getProducts();
+        this.deleteProduct();
       } catch (err) {
         console.log(err);
       }

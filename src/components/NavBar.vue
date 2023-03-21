@@ -6,8 +6,8 @@
           <div>
             <button class="lag">
               <router-link to="/">
-              <img src="https://i.postimg.cc/26C74zH7/lagom-high-resolution-logo-black-on-transparent-background.png"
-                class="lagom" alt="" srcset="" />
+                <img src="https://i.postimg.cc/26C74zH7/lagom-high-resolution-logo-black-on-transparent-background.png"
+                  class="lagom" alt="" srcset="" />
               </router-link>
             </button>
           </div>
@@ -17,8 +17,11 @@
           </label>
           <nav class="nav">
             <ul class="cont">
+              <router-link to="/cart">
+                <div class="div"><ion-icon class="icon" name="cart-outline"></ion-icon></div>
+              </router-link>
               <li>
-                <router-link to="/"  class="nav-link">Home</router-link>
+                <router-link to="/" class="nav-link">Home</router-link>
               </li>
               <li>
                 <router-link class="nav-link" to="/about">About</router-link>
@@ -52,7 +55,7 @@ a {
   text-decoration: none;
 }
 
-.lag{
+.lag {
   background-color: transparent;
   border: transparent;
 }
@@ -75,6 +78,20 @@ ul {
 .top {
   margin-top: 1rem;
 }
+
+.icon {
+  width: 30px;
+  height: 30px;
+  color: white;
+  float: right;
+}
+
+.div {
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  /* margin-top: 1rem; */
+}
+
 
 /* .top .nav ul li {
   display:list-item;
@@ -183,4 +200,5 @@ ul {
 .lagom {
   height: 2rem;
   padding-left: 1rem;
-}</style>
+}
+</style>
