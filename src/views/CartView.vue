@@ -3,14 +3,31 @@
         <NavBar />
         <Deliver />
         <div class="everything">
+            <div class="heading">
+                <h1>CART</h1>
+            </div>
             <div class="cart">
                 <div class="modal-body">
                     <div class="row1">
-                        <div class="col-md-auto">
+                        <div class="col-md-auto c1">
                             <div class="c">
-                                <div class="imag d">
-                                    <!-- <img src="https://i.postimg.cc/3Jkv9QPN/photo-1493612276216-ee3925520721.jpg"
-                                    class="card-img-top" alt="..." style="width: 20rem; height: 30rem" /> -->
+                                <div class="ite">
+                                    <img src="https://i.postimg.cc/W3kf7M7G/American-Express-Logo-700x394.png" alt="">
+                                </div>
+                            </div>
+                            <div class="c0">
+                                <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+                                    <p>
+                                        The Old Skool, the Vans classic skate shoe and first to bare the iconic sidestripe,
+                                        is a low top lace-up featuring sturdy canvas and suede uppers, re-enforced toe caps
+                                        to withstand repeated wear, padded collars for support and flexibility, and
+                                        signature rubber waffle outsoles.
+                                    </p>
+                                </div>
+                                <div class="qua">
+                                    <div class="dec">-</div>
+                                    <input type="text" value="0" class="input-filled" name="qty" id="1">
+                                    <div class="inc">+</div>
                                 </div>
                             </div>
                         </div>
@@ -92,12 +109,26 @@ export default {
     box-sizing: border-box;
 }
 
+.input-filled {
+    width: 10px;
+}
+
 .modal-body {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     max-width: 100%;
+    margin-left: 7rem;
+}
+
+.heading {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    height: 30vh;
 }
 
 .add ul li {
@@ -113,20 +144,33 @@ export default {
     margin-right: 2rem;
 }
 
-.row1 {
-    width: 100%;
-    display: flex;
+.desc .qua{
+    display: list-item;
     justify-content: center;
     align-items: center;
+}
+
+.c1 {
+    width: 100%;
     max-width: 100%;
+    border: 1px solid black;
+    background-color: grey;
+    height: 100%;
 }
 
 .checkout {
     float: right;
 }
-.right button{
+
+.right button {
     background: none;
     border: none;
+}
+
+.row1 {
+    margin-bottom: 3rem;
+    height: 20rem;
+    max-height: 100%;
 }
 
 .total {
@@ -134,29 +178,70 @@ export default {
     border-bottom: 1px solid rgba(63, 63, 63, 0.493);
 }
 
-.right ion-icon{
+.right ion-icon {
     width: 30px;
     height: 30px;
 }
 
-.c {
-    width: 30rem;
-    height: 20rem;
-    /* border: 6px solid black; */
-    max-width: 100%;
+.c1 .c img {
+    width: 20rem;
+    height: 100%;
 }
 
-.desc {
+
+.qua {
     display: flex;
     justify-content: center;
     align-items: center;
+    float: right;
 }
+
+.c0 p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+    max-height: 100%;
+    max-width: 100%;
+    height: 30px;
+    /* margin-bottom: 8rem; */
+}
+
+.c {
+    width: 50%;
+    float: left;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 6px solid black; */
+    background-color: aqua;
+    /* max-width: 100%; */
+}
+
+.c0 {
+    width: 50%;
+    float: right;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 6px solid black; */
+    background-color: red;
+    /* max-width: 100%; */
+}
+
+/* .desc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
 
 .cart {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 50vh;
 }
 
 .row2 {
@@ -170,7 +255,7 @@ export default {
 
 .contai {
     /* width: 35rem; */
-    height: 20rem;
+    height: 18rem;
     /* border: 1px solid black; */
     max-width: 100%;
 }
